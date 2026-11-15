@@ -132,11 +132,8 @@ YYGGames.setConfig({
 
             }
 
-            // loadScript(debug ? 'cocos2d-js.js' : 'cocos2d-js-min.js', function () {
-                const scripts = YYGGames.scripts;
-                scripts.import(["./cocos2d-js-min.js", "./physics-min.js"]).then(() => {
-                    scripts.require("./cocos2d-js-min.js");
-                    scripts.require("./physics-min.js");
+                       loadScript(debug ? 'cocos2d-js.js' : './cocos2d-js-min.js', function () {
+                loadScript('./physics-min.js', function () {
                     //开启解密功能
                     if (cc.sys.isMobile) {
                         var script = document.createElement('script');
@@ -144,27 +141,16 @@ YYGGames.setConfig({
                         script.setAttribute('src', "cc-resolution2.js");
                         document.getElementsByTagName('head')[0].appendChild(script);
                         if (fun) script.onload = fun;
-                        // resolution.init(resolution.clientWidth, resolution.clientHeight);
-    
                     } else {
                         var script = document.createElement('script');
                         script.setAttribute('type', 'text/javascript');
                         script.setAttribute('src', "cc-resolution.js");
                         document.getElementsByTagName('head')[0].appendChild(script);
                         if (fun) script.onload = fun;
-                        // resolution.init(720, 1280);
-    
                     }
-                    YYGGames.assetManager.enableVersionControl().then(window.boot)
-                
-                })
-
-
-                // YYGGames.assetManager.enableVersionControl().then(() => {
-                    // window.boot();
-                // });
-
-            // });
+                    window.boot();
+                });
+            });
         })();
     </script>
 
