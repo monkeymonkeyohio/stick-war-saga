@@ -4,12 +4,8 @@
       "source": "/(.*cocos2d-js-min\\.js|.*physics-min\\.js)",
       "headers": [
         {
-          "key": "Content-Encoding",
-          "value": "deflate"
-        },
-        {
           "key": "Content-Type",
-          "value": "application/javascript"
+          "value": "application/javascript; charset=utf-8"
         }
       ]
     },
